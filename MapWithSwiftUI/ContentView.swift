@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
+// KopiTiam means cafe or coffe/tea shop in Singapore
 struct KopiTiam: Identifiable {
     let id = UUID()
     var name: String
@@ -25,8 +26,9 @@ struct ContentView: View {
     // Use a fake center location for this demo app, Lau Pa Sat in center of Singapore, wish you can visit and enjoy this place someday.
     @State private var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 1.280716, longitude: 103.850442), span: MKCoordinateSpan(latitudeDelta: 0.008, longitudeDelta: 0.008))
     
+    
     var body: some View {
-        Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: searchResults) { foodCourt in
+        Map(coordinateRegion: $region, annotationItems: searchResults) { foodCourt in
             // Add Annotation
             MapAnnotation(coordinate: foodCourt.coordinate) {
                 // In this demo, I just put a button here, you can choose whichever you like
